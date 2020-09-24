@@ -26,19 +26,20 @@ const ModalContact = ({modal, guardarModal}) => {
           <View style={styles.seccion_2}>
             <Text style={styles.texto_contacto}>Contactos Publicitarios</Text>
             <View style={styles.datos_contactos}>
-              <Text>Celular : +591 72001177</Text>
+              <Text>Celular Comercial: +591 72001177</Text>
               <Text>Email : sqlr.1988@gmail.com</Text>
             </View>
             <Text style={styles.texto_contacto}>Contactos Canal Boplus</Text>
             <View style={styles.datos_contactos}>
-              <Text>Celular : +591 71562642</Text>
+              <Text>Celular Comercial: +591 72001177</Text>
+              <Text>Envia tu Material : +591 71562642</Text>
               <Text>Email : boplustv@gmail.com</Text>
               <Text>Facebook : BoPlusTV</Text>
               <Text>Página Oficial : https://boplus.tv/</Text>
             </View>
           </View>
           <View style={styles.seccion_3}>
-            <Text style={styles.texto_boliviano}>"Simplemente Boliviano"</Text>
+            <Text style={styles.texto_boliviano}>Simplemente Boliviano</Text>
           </View>
           <View style={styles.seccion_4}>
             <Image

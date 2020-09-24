@@ -10,6 +10,7 @@ import {
   PETICION_IMAGENES_ANUNCIO,
   PETICION_PUBLICIDAD_PRINCIPAL,
   PETICION_INFORMACION_QD,
+  ERROR_TV,
 } from '../../type/index';
 //Importamos la direccion
 import {
@@ -29,6 +30,7 @@ const BoplusState = (props) => {
       {direccion: 'https://boplus.tv/img_apk/img_tv/boplusprincipal.jpg'},
     ],
     informacionqd: [],
+    errortv: false,
   };
   const [state, dispatch] = useReducer(boplusReducer, initialState);
   //
@@ -138,6 +140,13 @@ const BoplusState = (props) => {
       console.log(error);
     }
   };
+  //
+  const funcionErrorTv = (valor) => {
+    dispatch({
+      type: ERROR_TV,
+      payload: valor,
+    });
+  };
   return (
     <boplusContext.Provider
       value={{
@@ -146,11 +155,13 @@ const BoplusState = (props) => {
         imagenespublicidad: state.imagenespublicidad,
         imagenpublicidadprincipal: state.imagenpublicidadprincipal,
         informacionqd: state.informacionqd,
+        errortv: state.errortv,
         funcionPeticionImagenRadio,
         funcionPeticionImagenTv,
         funcionPeticionImagenPublicidad,
         funcionPeticionPublicidadPrincipal,
         funcionPeticionInformacionQd,
+        funcionErrorTv,
       }}>
       {props.children}
     </boplusContext.Provider>

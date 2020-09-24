@@ -35,9 +35,11 @@ const Programacion = ({navigation}) => {
   //uso de USECONTEXT
   const {
     imagenestv,
+    errortv,
     imagenpublicidadprincipal,
     funcionPeticionImagenTv,
     funcionPeticionPublicidadPrincipal,
+    funcionErrorTv,
   } = useContext(boplusContext);
   //--------------------------------------------
   //Area de USEeFFECT
@@ -57,6 +59,14 @@ const Programacion = ({navigation}) => {
     return () =>
       BackHandler.removeEventListener('hardwareBackPress', backAction);
   }, []);
+  //
+  useEffect(() => {
+    if (errortv === true) {
+      console.log('NO EXISTE VIDEO');
+      navigation.navigate('selector');
+      funcionErrorTv(false);
+    }
+  }, [errortv]);
   //
   const onPressTv = () => {
     navigation.navigate('tv');

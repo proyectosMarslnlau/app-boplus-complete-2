@@ -10,15 +10,14 @@ import {
   Dimensions,
 } from 'react-native';
 //--------------------
+//
+import boplusContext from '../context/boplus/boplusContext';
+//
 import alertContext from '../context/alert/alertContext';
-//Importamos la libreria de HOOKS
-import useDeviceOrientation from '@rnhooks/device-orientation';
 //Importamos la libreria de VIDEO
 import VideoPlayer from 'react-native-video-controls';
 //Importamos las medidas de RESOLUCION
 import {DEVICE_WIDTH, DEVICE_HEIGHT} from '../resource/js/Device';
-//Importamos la libreria de GRADIENTES
-import LinearGradient from 'react-native-linear-gradient';
 //Importamos los ICONOS
 import {Icon} from 'react-native-elements';
 //Importamos la orientacion de MOBILE
@@ -41,7 +40,7 @@ const Tv = ({navigation}) => {
 
   //---------------------------------------------------------------
   const {funcionAlertError} = useContext(alertContext);
-
+  const {funcionErrorTv} = useContext(boplusContext);
   //-------------------------------------------------------
   //Creasmos la funcion que se incluira en el video
   //-------------------------------------------------------
@@ -68,7 +67,7 @@ const Tv = ({navigation}) => {
       mensaje: 'BoPlus no Disponible. Intente mas Tarde',
     };
     funcionAlertError(valorError);
-    navigation.navigate('selector');
+    funcionErrorTv(true);
   };
   return (
     <View>
@@ -89,7 +88,7 @@ const Tv = ({navigation}) => {
         <VideoPlayer
           source={{
             uri:
-              'https://ia800501.us.archive.org/11/items/popeye_i_dont_scare/popeye_i_dont_scare_512kb.mp4',
+              'https://livestreamingperu.com:8081/boliviajoven/tracks-v1a1/mono.m3u8',
           }}
           //https://livestreamingperu.com:8081/boliviajoven/tracks-v1a1/mono.m3u8
           //https://ia800501.us.archive.org/11/items/popeye_i_dont_scare/popeye_i_dont_scare_512kb.mp4

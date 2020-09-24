@@ -95,7 +95,7 @@ const Radio = ({navigation}) => {
       ],
     });
     TrackPlayer.addEventListener('remote-play', (event) => {
-      guardarEstado('Play');
+      guardarEstado('Stop');
       TrackPlayer.play();
     });
 
@@ -105,7 +105,7 @@ const Radio = ({navigation}) => {
     });
 
     TrackPlayer.addEventListener('remote-stop', () => {
-      guardarEstado('Stop');
+      guardarEstado('Play');
       TrackPlayer.destroy();
     });
   };

@@ -4,6 +4,7 @@ import {
   PETICION_IMAGENES_ANUNCIO,
   PETICION_PUBLICIDAD_PRINCIPAL,
   PETICION_INFORMACION_QD,
+  ERROR_TV,
 } from '../../type/index';
 export default (state, action) => {
   switch (action.type) {
@@ -31,6 +32,11 @@ export default (state, action) => {
       return {
         ...state,
         informacionqd: action.payload,
+      };
+    case ERROR_TV:
+      return {
+        ...state,
+        errortv: action.payload,
       };
     default:
       return state;
