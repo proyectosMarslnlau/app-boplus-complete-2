@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.boliviajoven.radio"
+        applicationId "com.app_boplus"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 6

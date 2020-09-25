@@ -25,7 +25,8 @@ import Tv from './Tv';
 import Orientation from 'react-native-orientation-locker';
 //
 import CarouselAnuncio from '../item/CarouselAnuncio';
-
+//
+import CardProgramacion from '../item/CardProgramacion';
 //----------------------------------------------
 //Inicio de programa
 //----------------------------------------------
@@ -79,7 +80,9 @@ const Programacion = ({navigation}) => {
     });
   };
   //
-
+  const presionar = () => {
+    console.log(valor);
+  };
   return (
     <View style={styles.container}>
       <LinearGradient colors={['#090909', '#452f20', '#090909']}>
@@ -95,18 +98,7 @@ const Programacion = ({navigation}) => {
             <Text style={styles.texto_programacion}>Nuestra Programación</Text>
           </View>
           {imagenestv.map((item) => (
-            <Card
-              containerStyle={{backgroundColor: '#DAD8D6', borderRadius: 10}}
-              wrapperStyle={{backgroundColor: '#DAD8DF'}}
-              key={item.id}>
-              <Card.Title>
-                <Text style={styles.texto_card}>{item.titulo}</Text>
-              </Card.Title>
-              <Card.Divider />
-              <Card.Image
-                source={{uri: item.direccion}}
-                style={styles.tinyLogo}></Card.Image>
-            </Card>
+            <CardProgramacion key={item.id} item={item} />
           ))}
           <View>
             <Button

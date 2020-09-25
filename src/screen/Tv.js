@@ -60,6 +60,11 @@ const Tv = ({navigation}) => {
     });
     guardarOrientacion('landscape');
   };
+  const onPressPantallaNormal = () => {
+    Orientation.lockToPortrait();
+    guardarMedidas({width: DEVICE_WIDTH, height: DEVICE_HEIGHT * 0.5});
+    guardarOrientacion('portrait');
+  };
   //----------------------------------------------------
   const loadErrorCarga = () => {
     let valorError = {
@@ -101,33 +106,63 @@ const Tv = ({navigation}) => {
           style={styles.video}
         />
       </View>
-      <Button
-        icon={
-          <Icon
-            name="external-link"
-            size={20}
-            color="#ffd618"
-            type="evilicon"
-            style={styles.icono}
-          />
-        }
-        title="Ver Pantalla Completa"
-        type="outline"
-        buttonStyle={{
-          paddingHorizontal: DEVICE_WIDTH * 0.1,
-          borderRadius: 10,
-          borderColor: '#FFB718',
-          borderWidth: 1,
-          backgroundColor: '#090909',
-        }}
-        titleStyle={{
-          color: '#ffd618',
-          fontFamily: 'PFBeauSansPro-Thin',
-          fontSize: 15,
-          fontWeight: '600',
-        }}
-        onPress={onPressPantallaCompleta}
-      />
+      {orientacion === 'landscape' ? (
+        <Button
+          icon={
+            <Icon
+              name="arrow-left"
+              size={20}
+              color="#06DEF1"
+              type="evilicon"
+              style={styles.icono}
+            />
+          }
+          title="Volver Pantalla Normal"
+          type="outline"
+          buttonStyle={{
+            paddingHorizontal: DEVICE_WIDTH * 0.1,
+            borderRadius: 10,
+            borderColor: '#0599D1',
+            borderWidth: 1,
+            backgroundColor: '#090909',
+          }}
+          titleStyle={{
+            color: '#06DEF1',
+            fontFamily: 'PFBeauSansPro-Thin',
+            fontSize: 15,
+            fontWeight: '600',
+          }}
+          onPress={onPressPantallaNormal}
+        />
+      ) : (
+        <Button
+          icon={
+            <Icon
+              name="external-link"
+              size={20}
+              color="#ffd618"
+              type="evilicon"
+              style={styles.icono}
+            />
+          }
+          title="Ver Pantalla Completa"
+          type="outline"
+          buttonStyle={{
+            paddingHorizontal: DEVICE_WIDTH * 0.1,
+            borderRadius: 10,
+            borderColor: '#FFB718',
+            borderWidth: 1,
+            backgroundColor: '#090909',
+          }}
+          titleStyle={{
+            color: '#ffd618',
+            fontFamily: 'PFBeauSansPro-Thin',
+            fontSize: 15,
+            fontWeight: '600',
+          }}
+          onPress={onPressPantallaCompleta}
+        />
+      )}
     </View>
   );
 };
