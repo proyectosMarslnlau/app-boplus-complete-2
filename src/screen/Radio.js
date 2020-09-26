@@ -24,6 +24,7 @@ import {SliderVolumeController} from 'react-native-volume-controller';
 import LinearGradient from 'react-native-linear-gradient';
 //Importamos el Carousel de RADIO
 import CarouselRadio from '../item/CarouselRadio';
+import CarouselAnuncioRadio from '../item/CarouselAnuncioRadio';
 //
 import boplusContext from '../context/boplus/boplusContext';
 //Context Alert
@@ -175,7 +176,7 @@ const Radio = ({navigation}) => {
       });
   };
   const onPressWhatsapp = () => {
-    Linking.openURL('whatsapp://send?phone=59172001177')
+    Linking.openURL('whatsapp://send?phone=59171562642')
       .then((data) => {
         console.log('WhatsApp Opened');
       })
@@ -273,10 +274,7 @@ const Radio = ({navigation}) => {
             />
           </View>
           <View style={styles.seccion_4_2}>
-            <Image
-              style={styles.publicidad_principal}
-              source={{uri: imagenpublicidadprincipal[0].direccion}}
-            />
+            <CarouselAnuncioRadio />
           </View>
         </ImageBackground>
       </View>

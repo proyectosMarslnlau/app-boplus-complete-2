@@ -26,9 +26,7 @@ const BoplusState = (props) => {
     imagenesradio: [],
     imagenestv: [],
     imagenespublicidad: [],
-    imagenpublicidadprincipal: [
-      {direccion: 'https://boplus.tv/img_apk/img_tv/boplusprincipal.jpg'},
-    ],
+    imagenpublicidadprincipal: [],
     informacionqd: [],
     errortv: false,
   };
