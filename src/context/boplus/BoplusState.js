@@ -11,6 +11,7 @@ import {
   PETICION_PUBLICIDAD_PRINCIPAL,
   PETICION_INFORMACION_QD,
   ERROR_TV,
+  DIRECCION_TV_BOPLUS
 } from '../../type/index';
 //Importamos la direccion
 import {
@@ -19,6 +20,7 @@ import {
   peticion_publicidad_principal,
   peticion_informacion_qd,
   peticion_imagenes_radio,
+  peticion_direcion_tv
 } from '../../resource/js/DirectionApi';
 //-----------------------------------------------------
 const BoplusState = (props) => {
@@ -29,6 +31,7 @@ const BoplusState = (props) => {
     imagenpublicidadprincipal: [],
     informacionqd: [],
     errortv: false,
+    direccion : ''
   };
   const [state, dispatch] = useReducer(boplusReducer, initialState);
   //
@@ -145,6 +148,23 @@ const BoplusState = (props) => {
       payload: valor,
     });
   };
+  //
+  const funcionPeticionDireccion = async() => {
+    try {
+        //Importamos la direccionde la API
+        const urlDireccionTv = peticion_direcion_tv;
+        const peticion = await axios.get(urlDireccionTv);
+        const respuestaDireccionTv = peticion.data;
+        if(respuestaDireccionTv.length !== 0){
+         dispatch({
+           type : DIRECCION_TV_BOPLUS,
+           payload : respuestaDireccionTv[0].direccion
+         })
+        }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <boplusContext.Provider
       value={{
@@ -154,12 +174,14 @@ const BoplusState = (props) => {
         imagenpublicidadprincipal: state.imagenpublicidadprincipal,
         informacionqd: state.informacionqd,
         errortv: state.errortv,
+        direccion : state.direccion,
         funcionPeticionImagenRadio,
         funcionPeticionImagenTv,
         funcionPeticionImagenPublicidad,
         funcionPeticionPublicidadPrincipal,
         funcionPeticionInformacionQd,
         funcionErrorTv,
+        funcionPeticionDireccion
       }}>
       {props.children}
     </boplusContext.Provider>

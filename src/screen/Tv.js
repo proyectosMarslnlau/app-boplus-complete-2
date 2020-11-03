@@ -29,6 +29,10 @@ import {Button} from 'react-native-elements';
 //Inicio de programa
 //------------------------------------------------------------------
 const Tv = ({navigation}) => {
+  //
+  useEffect(() => {
+    funcionPeticionDireccion();
+  }, [])
   //State Locales
   const [orientacion, guardarOrientacion] = useState('portrait');
 
@@ -40,7 +44,7 @@ const Tv = ({navigation}) => {
 
   //---------------------------------------------------------------
   const {funcionAlertError} = useContext(alertContext);
-  const {funcionErrorTv} = useContext(boplusContext);
+  const {direccion, funcionErrorTv, funcionPeticionDireccion} = useContext(boplusContext);
   //-------------------------------------------------------
   //Creasmos la funcion que se incluira en el video
   //-------------------------------------------------------
@@ -93,7 +97,7 @@ const Tv = ({navigation}) => {
         <VideoPlayer
           source={{
             uri:
-              'https://livestreamingperu.com:8081/boliviajoven/tracks-v1a1/mono.m3u8',
+              `${direccion}`,
           }}
           //https://livestreamingperu.com:8081/boliviajoven/tracks-v1a1/mono.m3u8
           //https://ia800501.us.archive.org/11/items/popeye_i_dont_scare/popeye_i_dont_scare_512kb.mp4

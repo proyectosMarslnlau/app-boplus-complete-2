@@ -9,3 +9,4 @@ export const peticion_informacion_qd =
   'https://boplus.tv/api/siteWeb/request/peticionInformacionQd.php';
 export const peticion_imagenes_radio =
   'https://boplus.tv/api/siteWeb/request/peticionInformacionRadio.php';
+export const peticion_direcion_tv = 'https://boplus.tv/api/siteWeb/request/peticionDireccionTv.php'
